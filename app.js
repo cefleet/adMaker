@@ -39,39 +39,35 @@ function ensureAuthenticated(req, res, next) {
 }
 
 
-/***************************************
- * Save Map
+app.post('/save_ad', ensureAuthenticated, function(req, res){
+    var data = req.body; 
+	data._id = data.id;
 
- * *************************************/
- /*
-app.post('/save_map', ensureAuthenticated, function(req,res){
-	var save = {
-		name : req.body.name,
-		id : req.body.id,
-		tilemap : req.body.tilemap,
-		tilesetId : req.body.tilesetId,
-		owner : req.session.user_id,
-		layers : req.body.layers
-	}
-	//first look for item
-	//if found update
-	db.maps.find({id : save.id, owner : save.owner}, function(err,docs){
-		if(docs.length < 1){
-			db.maps.insert(save, function (err, newDoc){
-        res.contentType('json');
-        res.send({status : 'success',message: 'Map Saved'});
-			});
-		} else {
-			db.maps.update({id:save.id}, save,{}, function(err){
-				console.log('Updated Map');
-        res.contentType('json');
-        res.send({status : 'success',message: 'Map Saved'});
-			});
-		}
-	});
-	//if not found add
+	db.ads.find({_id : data.id},function(err,docs){
+	    //It is new and thus needs to be inserted
+
+	    if(docs.length < 1){
+	        db.ads.insert(data, function(err,newDoc){
+	            res.contentType('json');
+	            res.send({"status":"new","id":newDoc._id});
+	        });
+	    } else {
+	    
+	        db.ads.update({_id:data.id}, req.body,{}, function(err){
+	            res.contentType('json');
+	            res.send({"status":"updated"});
+	        });
+	        
+	    }
+	})
 });
-*/
+
+app.get('/get_ads', ensureAuthenticated, function(req, res){
+    db.ads.find({}, function(err,docs){
+       res.contentType('json');
+       res.send(docs); 
+    });
+});
 
 var sampleUser = {
   username : 'admin',
