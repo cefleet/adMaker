@@ -1,0 +1,21 @@
+{
+  "name": "AdMaker",
+  "description": "Generate Ads for craigslist",
+  "version": "0.0.1",
+  "dependencies": {
+    "crypto":"*",
+    "grunt": "*",
+    "grunt-contrib-uglify":"*",
+    "grunt-contrib-handlebars":"*",
+    "grunt-contrib-concat":"*",
+    "grunt-contrib-jshint":"*",
+    "grunt-contrib-watch":"*",
+    "bootstrap":"*",
+    "jquery": "*",
+    "express":"*",
+    "body-parser" : "*",
+    "express-session":"*",
+    "nedb":"*",
+    "handlebars":"*"
+   }
+}
