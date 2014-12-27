@@ -1,0 +1,33 @@
+<div class='form-group'>
+  <label for='adName'>Ad Name</a>
+  <input class='form-control' id='adName' name='adName' placeholder='Name of Ad' {{#if name}}value='{{name}}'{{/if}}>
+</div>
+<h2>Title Parts</h2>
+<div id='titleParts'>
+  <ul id='listTitleParts' class='list-group'>
+    {{#each title_part}}
+      {{> title_part}}
+    {{/each}}
+  </ul>
+  <a class='btn btn-primary' action='addTitlePart'>
+    <span class='glyphicon glyphicon-plus'></span>
+  </a>
+</div>
+<h2>Body Parts</h2>
+<div id='bodyParts'>
+  <ul id='listBodyParts' class='list-group'>
+    {{#each body_part}}
+      {{> body_part}}
+    {{/each}}
+  </ul>
+  <div class='btn-group'>
+    <button type='button' class='btn btn-primary' action='addBodyPart' data-toggle='dropdown' aria-expanded='false'>
+      <span class='glyphicon glyphicon-plus'></span><span class="caret"></span>
+    </button>
+    <ul class='dropdown-menu' role='menu'>
+      <li><a action='addBodyPart' data='list'>List</a></li>
+      <li><a action='addBodyPart' data='paragraph'>Paragraph</a></li>
+    </ul>
+  </div>
+</div>
+<a class='btn btn-success pull-right' id='generate' action='generateAd'>Generate Ad <span class='glyphicon glyphicon-wrench'></span></a>

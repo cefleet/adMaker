@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 
     handlebars: {
       options : {
-		  namespace : 'UI.Views',
+		  namespace : 'AM.Views',
       processName: function(filePath) {
       var name = filePath.replace(/^.*[\\\/]/, '');
         return name.replace('.hbs','');
@@ -13,37 +13,37 @@ module.exports = function(grunt) {
 	   },
      all: {
        files: {
-         "public/Views.js": ["templates/**/*.hbs"]
+         "templates/Templates.js": ["templates/**/*.hbs"]
         }
     	}
     },
 
     jshint: {
       options : {
-	       ignores : ['public/Views.js']
+	       ignores : ['public/AM.js']
       },
-      all: ['public/**/*.js']
+      all: ['actions/**/*.js','launchers/**/*js']
     },
-/*
+
     concat : {
       options : {
         sourceMap :true
       },
       dev : {
         files : {
-          'public/ui/UI.combined.js':['public/ui/UI.js','public/ui/Actions.js','public/ui/Actions/*.js','public/ui/Views.js','public/ui/LaunchPad.js','public/ui/Launchers/*.js'],
+          'public/AM.js':['AM.js','templates/Templates.js','launchers/Launcher.js','launchers/*.js', 'actions/Actions.js','actions/*.js']
         }
       }
     },
-*/
+
     watch: {
        handlebars :{
        		files : ["templates/**/*.hbs"],
          	tasks : ['handlebars']
       },
       testAndCombine : {
-        files : ['public/**/*.js'],
-        tasks: ['jshint']
+        files : ['AM.js','launchers/*.js','actions/*.js'],
+        tasks: ['jshint','concat']
       }
     }
   });
