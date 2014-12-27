@@ -1,6 +1,8 @@
 var AM = {
     start : function(){
-      console.log('So it begins');
+
+      $('body').append(UI.Views.navbar())
+        .append(UI.Views.main());
     }
 };
 
