@@ -1,3 +1,4 @@
+<div id='adform'>
 <div class='form-group'>
   <label for='adName'>Ad Name</a>
   <input class='form-control' id='adName' name='adName' placeholder='Name of Ad' {{#if name}}value='{{name}}'{{/if}}>
@@ -9,7 +10,7 @@
       {{> title_part}}
     {{/each}}
   </ul>
-  <a class='btn btn-primary' action='addTitlePart'>
+  <a class='btn btn-primary' id='addTitlePart' action='addTitlePart'>
     <span class='glyphicon glyphicon-plus'></span>
   </a>
 </div>
@@ -29,5 +30,7 @@
       <li><a action='addBodyPart' data='paragraph'>Paragraph</a></li>
     </ul>
   </div>
+</div>
+<input type='hidden' id='adId' {{#if id}} value='{{id}}'{{/if}}>
 </div>
 <a class='btn btn-success pull-right' id='generate' action='generateAd'>Generate Ad <span class='glyphicon glyphicon-wrench'></span></a>

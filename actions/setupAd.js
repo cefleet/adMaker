@@ -1,19 +1,34 @@
 AM.Actions.setupAd = function(){
-  console.log('Setting up the ad Actions');
-  //TODO need the object
+
+  var ad = {};
+
+  ad.name = AM.data.activeAd.name || null;
+  ad.id = AM.data.activeAd.id || null;
+  ad.titleParts = AM.data.activeAd.titleParts || [];
+  ad.bodyParts = AM.data.activeAd.bodyParts ||[];
+
+   console.log(ad);
+  //callback for saved items
+  saveCallback = function(data){
+    if(data.status == 'new'){
+        //apply the id
+        $('#adId').val(data.id);
+    }
+  };
+  
+ //TODO need the object
  //Each one of these needs to manipulate the data in it's own way every time it changes
 
   $('#adName').focusout(function(){
-    //save the entire ad instead of little parts its just eaiser
-    console.log('I need to save the ad');
-    //modify the name value of the ad object
-    var name = $('#adName').val();
 
-    //save the whole object
+    ad.name = $('#adName').val();
+    AM.Actions.saveAd(ad, saveCallback);
+    
   });
 
-
-  //$('.addTitlePart').each();
+  $('#addTitlePart').on('click',function(){
+    AM.Launchers.titlePart();
+  });
 
   //TODO need a degelate the next two because they are dynamic
     //$('.titleItemForm').

@@ -41,19 +41,18 @@ function ensureAuthenticated(req, res, next) {
 
 app.post('/save_ad', ensureAuthenticated, function(req, res){
     var data = req.body; 
-	data._id = data.id;
-
-	db.ads.find({_id : data.id},function(err,docs){
+   
+	db.ads.find({id : data.id},function(err,docs){
 	    //It is new and thus needs to be inserted
 
 	    if(docs.length < 1){
 	        db.ads.insert(data, function(err,newDoc){
 	            res.contentType('json');
-	            res.send({"status":"new","id":newDoc._id});
+	            res.send({"status":"new","id":newDoc.id});
 	        });
 	    } else {
 	    
-	        db.ads.update({_id:data.id}, req.body,{}, function(err){
+	        db.ads.update({id:data.id}, req.body,{}, function(err){
 	            res.contentType('json');
 	            res.send({"status":"updated"});
 	        });

@@ -1,4 +1,6 @@
-AM.Launchers.adList = function(){
+AM.Launchers.titlePart = function(){
+    AM.Launchers.launch('title_part','#listTitleParts',{id:$uid()},false);
+/*
     var callback = function(data){ 
         AM.data.ads = data;
         AM.Launchers.launch('list_ads','#container',AM.data,true);
@@ -13,8 +15,6 @@ AM.Launchers.adList = function(){
         };
 
         $('.adItem').each(setupClick);
-    };
-    
-    AM.Actions.getAds(callback);
-  
+    }; 
+*/ 
 };
