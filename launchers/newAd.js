@@ -3,8 +3,8 @@ AM.Launchers.newAd = function(){
   AM.data.activeAd = {
     id : $uid()
   };
-  AM.Launchers.launch('ad','#container',AM.data.activeAd,true);
-  
+  AM.Launchers.launch('ad','#container',AM.data.activeAd,true); 
+
   AM.Actions.setupAd();
   //Setup the listeners
-}; 
+};

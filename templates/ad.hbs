@@ -1,12 +1,13 @@
-<div id='adform'>
+<div id='adform' class='row'>
+<div class='col-md-12'>
 <div class='form-group'>
   <label for='adName'>Ad Name</a>
   <input class='form-control' id='adName' name='adName' placeholder='Name of Ad' {{#if name}}value='{{name}}'{{/if}}>
 </div>
-<h2>Title Parts</h2>
-<div id='titleParts'>
-  <ul id='listTitleParts' class='list-group'>
-    {{#each title_part}}
+<div id='titleParts' class='col-md-6'>
+  <h2>Title Parts</h2>
+  <ul id='listTitleParts' class='list-group col-md-12'>
+    {{#each titleParts}}
       {{> title_part}}
     {{/each}}
   </ul>
@@ -14,23 +15,24 @@
     <span class='glyphicon glyphicon-plus'></span>
   </a>
 </div>
-<h2>Body Parts</h2>
-<div id='bodyParts'>
-  <ul id='listBodyParts' class='list-group'>
-    {{#each body_part}}
+<div id='bodyParts' class='col-md-6'>
+  <h2>Body Parts</h2>
+  <ul id='listBodyParts' class='list-group col-md-12'>
+    {{#each bodyParts}}
       {{> body_part}}
     {{/each}}
   </ul>
   <div class='btn-group'>
-    <button type='button' class='btn btn-primary' action='addBodyPart' data-toggle='dropdown' aria-expanded='false'>
+    <button type='button' class='btn btn-primary' data-toggle='dropdown' aria-expanded='false'>
       <span class='glyphicon glyphicon-plus'></span><span class="caret"></span>
     </button>
     <ul class='dropdown-menu' role='menu'>
-      <li><a action='addBodyPart' data='list'>List</a></li>
-      <li><a action='addBodyPart' data='paragraph'>Paragraph</a></li>
+      <li><a class='addBodyPart' action='addBodyPart' data='list'>List</a></li>
+      <li><a class='addBodyPart' action='addBodyPart' data='paragraph'>Paragraph</a></li>
     </ul>
   </div>
 </div>
 <input type='hidden' id='adId' {{#if id}} value='{{id}}'{{/if}}>
 </div>
 <a class='btn btn-success pull-right' id='generate' action='generateAd'>Generate Ad <span class='glyphicon glyphicon-wrench'></span></a>
+</div>

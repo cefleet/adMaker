@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       },
       dev : {
         files : {
-          'public/AM.js':['AM.js','templates/Templates.js','launchers/Launcher.js','launchers/*.js', 'actions/Actions.js','actions/*.js']
+          'public/AM.js':['AM.js','templates/Templates.js','templates/helpers.js','launchers/Launcher.js','launchers/*.js', 'actions/Actions.js','actions/*.js']
         }
       }
     },

@@ -1,5 +1,5 @@
 var AM = {
-  data : {}, 
+  data : {},
   start : function(){
     AM.Launchers.main();
     AM.Launchers.navbar();
@@ -10,12 +10,12 @@ var AM = {
     .done(function(data){
         console.log(data);
         AM.data.ads = data;
-        
+
     });
     //This doesn't need to be loaded until data is gotten from the database
     */
   },
-  
+
   testSave : function(){
     $.post("/save_ad",{
         "name":"My Favorite ad",
@@ -36,7 +36,7 @@ var AM = {
     })
     .done(function(data){
         alert(data.id);
-        console.log('it was sent');   
+        console.log('it was sent');
         console.log(data);
     });
   }
@@ -53,3 +53,22 @@ $uid = (function() {
            s4() + '-' + s4() + s4() + s4();
   };
 })();
+
+function $shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}

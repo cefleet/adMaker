@@ -1,21 +1,10 @@
 <li class='list-group-item col-md-12' id='{{id}}'>
-  {{#equal type 'paragraph'}}
-  <div class='form-group col-md-10'>
-    <textarea class='form-control formItemForm' data='{{id}}' placeholder='Title Text'>{{text}}</textarea>
-  </div>
-  {{/equal}}
-  {{#equal type 'list'}}
-  <ul id='{{id}}-list' class='list-group col-md-10'>
-    {{#each listItems}}
-      {{> body_list_item}}
-    {{/each}}
-  </ul>
+  <ul id='{{id}}-list' class='list-group col-md-10'></ul>
   <div class='col-md-2'>
     <a class='btn btn-primary addBodyListItem' action='addBodyListItem' data='{{id}}'>
       <span class='glyphicon glyphicon-plus'></span>
     </a>
   </div>
-  {{/equal}}
   <div class=' col-md-offset-10 col-md-2'>
     <a class='btn btn-danger removeBodyPart' data='{{id}}'><span class='glyphicon glyphicon-minus'></span></a>
   </div>

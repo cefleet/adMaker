@@ -1,6 +1,8 @@
-<li class='list-group-item' id='{{id}}'>
-    <div class='form-group'>
+<li class='list-group-item col-md-12' id='{{id}}'>
+    <div class='form-group col-md-10'>
         <input class='form-control titleItemForm' data='{{id}}' placeholder='Title Text'>
-    </div> 
-    <a class='btn btn-danger removeTitleItem'><span class='glyphicon glyphicon-minus'></span></a>
-</li> 
+    </div>
+    <div class='col-md-2'>
+      <a class='btn btn-danger removeTitleItem' data='{{id}}'><span class='glyphicon glyphicon-minus'></span></a>
+    </div>
+</li>

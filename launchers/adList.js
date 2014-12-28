@@ -1,6 +1,7 @@
 AM.Launchers.adList = function(){
-    var callback = function(data){ 
+    var callback = function(data){
         AM.data.ads = data;
+        console.log(data);
         AM.Launchers.launch('list_ads','#container',AM.data,true);
 
         //get the list and make them clickable here
@@ -14,7 +15,6 @@ AM.Launchers.adList = function(){
 
         $('.adItem').each(setupClick);
     };
-    
+
     AM.Actions.getAds(callback);
-  
 };
